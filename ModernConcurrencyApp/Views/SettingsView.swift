@@ -39,7 +39,7 @@ struct SettingsView: View {
             .task {
                 do {
                     isRequestInFlight = true
-                    numberViews = try await model.calculateTotalNumberOfPostReads(posts)
+                    numberViews = try await model.calculateTotalNumberOfPostsViews(posts)
                 } catch {}
                 isRequestInFlight = false
             }

@@ -39,7 +39,7 @@ class PostsRequestModel: ObservableObject {
         return image
     }
     
-    func calculateTotalNumberOfPostReads(_ posts: [Post]) async throws -> Int {
+    func calculateTotalNumberOfPostsViews(_ posts: [Post]) async throws -> Int {
         try await withThrowingTaskGroup(
             of: Post.self,
             returning: Int.self
