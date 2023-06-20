@@ -31,7 +31,8 @@ class PostsRequestModel: ObservableObject {
         return post
     }
     
-    func image(_ imageUrl: String) async throws -> UIImage {
+    func image(_ imageUrl: String?) async throws -> UIImage? {
+        guard let imageUrl = imageUrl else { return nil }
         guard let url = URL(string: imageUrl) else { throw "Could not create the download URL." }
         let (data, response) = try await session.data(from: url)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw "The server responded with an error." }

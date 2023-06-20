@@ -73,7 +73,13 @@ struct PostDetailView: View {
 
 struct PostDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailView(post: Post.mock)
-            .environmentObject(PostsRequestModel())
+        Group {
+            PostDetailView(post: Post.mock)
+                .previewDisplayName("Mock")
+            
+            PostDetailView(post: Post.emptyImageMock)
+                .previewDisplayName("Empty Image Mock")
+        }
+        .environmentObject(PostsRequestModel())
     }
 }
